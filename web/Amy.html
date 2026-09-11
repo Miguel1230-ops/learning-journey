@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Amy Sofía 🌹</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose:       #e8637a;
+      --rose-light: #f2a4b2;
+      --petal:      #fde8ec;
+      --blush:      #fdf0f3;
+      --deep:       #8b2442;
+      --text:       #4a2030;
+      --gold:       #c9956c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--blush);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── Falling petals ── */
+    .petals-wrap {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 0; overflow: hidden;
+    }
+    .petal {
+      position: absolute; top: -60px;
+      font-size: 1.4rem;
+      animation: fall linear infinite;
+      opacity: 0.75;
+    }
+    @keyframes fall {
+      0%   { transform: translateY(0)   rotate(0deg);   opacity: .8; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(160deg, #fff0f4 0%, #fce4ea 50%, #f9d4dd 100%);
+    }
+
+    .hero-rose { font-size: 5rem; margin-bottom: 1rem; animation: pulse 2.8s ease-in-out infinite; }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.12); }
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 7vw, 4.2rem);
+      font-weight: 700;
+      color: var(--deep);
+      line-height: 1.15;
+      letter-spacing: -.5px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--rose);
+      display: block;
+    }
+
+    .subtitle {
+      margin-top: .9rem;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .scroll-hint {
+      margin-top: 3rem;
+      font-size: .85rem;
+      color: var(--rose-light);
+      letter-spacing: 1px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(6px); }
+    }
+
+    /* ── Sections ── */
+    section {
+      position: relative; z-index: 1;
+      max-width: 680px; margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2.4rem 2rem;
+      box-shadow: 0 4px 32px rgba(232,99,122,.13);
+      border: 1px solid #fbd5dc;
+    }
+
+    .card-icon { font-size: 2.2rem; margin-bottom: .8rem; }
+
+    .card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--deep);
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #5a3040;
+      font-weight: 300;
+    }
+
+    .card p + p { margin-top: .9rem; }
+
+    /* ── Counter ── */
+    .counter-card {
+      text-align: center;
+      background: linear-gradient(135deg, var(--deep) 0%, #c0365a 100%);
+      color: white;
+      border: none;
+    }
+    .counter-card h2 { color: #fde8ec; }
+    .counter-card p  { color: #fbd5dc; }
+
+    .days-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(5rem, 18vw, 8rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+      display: block;
+      text-shadow: 0 0 40px rgba(255,255,255,.25);
+    }
+    .days-label {
+      font-size: .85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose-light);
+      margin-top: .3rem;
+      display: block;
+    }
+
+    /* ── Roses row ── */
+    .roses-divider {
+      text-align: center;
+      font-size: 1.8rem;
+      letter-spacing: 6px;
+      padding: .5rem 0;
+      position: relative; z-index: 1;
+    }
+
+    /* ── Footer ── */
+    footer {
+      position: relative; z-index: 1;
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      font-size: .85rem;
+      color: var(--rose-light);
+      letter-spacing: 1px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .card { padding: 1.8rem 1.3rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .petal, .hero-rose, .scroll-hint { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Falling petals -->
+<div class="petals-wrap" id="petalsWrap"></div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-rose">🌹</div>
+  <h1>Feliz cumpleaños,<em>Amy Sofía</em></h1>
+  <p class="subtitle">Con todo mi amor · Miguel</p>
+  <p class="scroll-hint">↓ sigue leyendo ↓</p>
+</div>
+
+<!-- Counter -->
+<section>
+  <div class="card counter-card">
+    <div class="card-icon">🤍</div>
+    <h2>Días juntos</h2>
+    <span class="days-number" id="daysCount">0</span>
+    <span class="days-label">días a tu lado</span>
+    <p style="margin-top:1.2rem;">Desde el 23 de abril — cada uno de ellos ha valido la pena.</p>
+  </div>
+</section>
+
+<div class="roses-divider">🌸 🌹 🌸</div>
+
+<!-- Message -->
+<section>
+  <div class="card">
+    <div class="card-icon">💌</div>
+    <h2>Lo que siento de verdad</h2>
+    <p>
+      Hemos tenido momentos difíciles, peleas, días en los que no ha sido fácil.
+      A veces soy complicado, lo sé. Pero incluso en esos momentos,
+      nunca he dejado de amarte.
+    </p>
+    <p>
+      Sos la persona que ha estado a mi lado en las buenas y en las malas,
+      sin importar nada. Y eso no lo olvido ni lo doy por sentado.
+      Siempre te lo he agradecido, y te lo seguiré agradeciendo.
+    </p>
+    <p>
+      Quiero que estés a mi lado toda la vida,
+      si así es la voluntad de Dios, así será.
+    </p>
+    <p style="margin-top:1.4rem; font-family:'Playfair Display',serif; font-size:1.15rem; color:var(--deep);">
+      <em>Te amo, mi numen. 🌹</em>
+    </p>
+  </div>
+</section>
+
+<div class="roses-divider">🌹 🌸 🌹</div>
+
+<!-- Birthday wish -->
+<section>
+  <div class="card">
+    <div class="card-icon">🎂</div>
+    <h2>En tu cumpleaños</h2>
+    <p>
+      Que este día sea tan especial como vos.
+      Que todo lo que soñás se vaya cumpliendo, poco a poco,
+      y que siempre tengas razones para sonreír.
+    </p>
+    <p>
+      Hoy y siempre, estoy aquí.
+    </p>
+  </div>
+</section>
+
+<footer>
+  Hecho con código y con el corazón · Miguel → Amy Sofía 🌹
+</footer>
+
+<script>
+  // ── Day counter ──
+  const start = new Date('2026-04-23T00:00:00');
+  const today = new Date();
+  const diff  = Math.floor((today - start) / (1000 * 60 * 60 * 24));
+  document.getElementById('daysCount').textContent = diff;
+
+  // ── Falling petals ──
+  const wrap   = document.getElementById('petalsWrap');
+  const emojis = ['🌸', '🌹', '🪷', '🌺', '💮'];
+  const COUNT  = 22;
+
+  for (let i = 0; i < COUNT; i++) {
+    const el = document.createElement('span');
+    el.className = 'petal';
+    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    el.style.left     = Math.random() * 100 + 'vw';
+    el.style.fontSize = (1 + Math.random() * 1.2) + 'rem';
+    el.style.animationDuration  = (6 + Math.random() * 8) + 's';
+    el.style.animationDelay     = (Math.random() * 8) + 's';
+    wrap.appendChild(el);
+  }
+</script>
+
+</body>
+</html>
