@@ -38,6 +38,30 @@ ul {
     margin-bottom: 0;
 }
 
+
+.servicios-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.servicio-card {
+    background: white;
+    border: 2px solid #1a1a2e;
+    border-radius: 12px;
+    padding: 15px;
+    flex: 1;
+    min-width: 150px;
+    margin-bottom: 0;
+    box-shadow: none;
+}
+
+
 li {
     margin-bottom: 8px;
 }
@@ -80,7 +104,7 @@ button:hover {
 }
 
 input {
-    padding: 10px;;
+    padding: 10px;
     margin: 5px 0;
     border: 2px solid #1a1a2e;
     border-radius: 8px;
@@ -88,8 +112,4 @@ input {
     display: block;
     width: 100%;
     max-width: 300px;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> c799ed60e68250af55286dde09dbae2783fb6493

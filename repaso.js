@@ -12,7 +12,7 @@ function calcularPrecio(paginas, urgente) {
   let precio = 150; 
 
   if (paginas > 3) {
-    precio += 150; 
+    precio += 50 
   }
   if (urgente) { 
     precio *= 1.5; 
