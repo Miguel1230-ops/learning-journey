@@ -7,7 +7,7 @@ body {
     line-height: 1.6;
 }
 
-header, div {
+header, section {
     background-color: white;
     padding: 20px;
     border: 2px solid #1a1a2e;
