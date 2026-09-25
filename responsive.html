@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- Esta línea meta es OBLIGATORIA para que el celular entienda el tamaño real de la pantalla -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>práctica responsive</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                padding: 20px;
+                margin: 0;
+
+            }
+
+            /* ESTILO BASE (para celular): ocupa el 100% del ancho */
+            .tarjeta {
+                width: 100%;
+                background-color:#f0f0f0;
+                padding: 20px;
+                margin-bottom: 15px;
+                border: 2px solid #1a1a2e;
+                border-radius: 10px;
+                box-sizing: border-box /* el padding no deforma el ancho */
+
+            }
+
+        /* 2. PANTALLAS MEDIANAS (tablets de 768px en adelante): 2 columnas */
+     @media (min-width: 768px) {
+        .tarjeta {
+            width: 47%;
+            display: inline-block;
+            margin-right: 2%;
+        }
+    }  
+
+     /* 3. PANTALLAS GRANDES (computadoras de 1024px en adelante): 3 columnas */
+     @media (min-width: 1024px) {
+         .tarjeta {
+            width: 31%;
+            margin-right: 2%;
+         }
+    }
+
+        </style>
+    </head>
+    <body>
+        <h1>Nuestros servicios</h1>
+
+        <div class="tarjeta">
+            <h2>Servicio 1</h2>
+            <p>Automatización de WhatsApp para ventas.</p>
+        </div>
+
+        <div class="tarjeta">
+            <h2>Servicio 2</h2>
+            <p>Paginas webs modernas para negocios.</p>
+        </div>
+
+        <div class="tarjeta">
+            <h2>Servicio 3</h2>
+            <p>Agentes de IA para atención al cliente.</p>
+        </div>
+    </body>
+</html>

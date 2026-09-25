@@ -1,0 +1,156 @@
+/* RESET BÁSICO (para que todo mida exactamente lo que decimos) */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+
+}
+
+/* 2. HEADER CON FLEXBOX (Logo a la izq, Menú a la der) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #1a1a2e;
+    color: white;
+
+}
+
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+
+}
+
+nav a:hover {
+     color: #e94560;
+
+}
+
+/* 3. HERO (PORTADA) */
+#hero {
+    background-color: #16213e;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+
+}
+
+#hero h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+
+}
+
+/* 4. SECCIÓN SERVICIOS CON CSS GRID */
+#servicios {
+    padding: 60px 20px;
+    text-align: center;
+
+}
+
+#servicios h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+
+}
+
+.servicio-card {
+    background: white;
+    border: 2px solid #1a1a2e;
+    border-radius: 12px;
+    padding: 30px 20px;
+    box-shadow: 6px 6px 0 #1a1a2e;
+
+}
+
+.servicio-card h3 {
+    margin-bottom: 10px;
+
+}
+
+.precio {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e94560;
+    margin-bottom: 10px;
+
+}
+
+/* 5. CONTACTO */
+#contacto {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 60px 20px;
+    border-top: 2px solid #1a1a2e;
+
+}
+
+.btn-whatsapp {
+    display: inline-block;
+    background-color: #25d366;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+    box-shadow: 4px 4px 0 #1a1a2e;
+
+}
+
+/* 6. FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1a1a2e;
+    color: white;
+
+}
+
+/* ====================================================
+   7. MEDIA QUERY RESPONSIVE (Para Celulares < 768px)
+   ==================================================== */
+   @media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Menú pasa de fila a columna */
+        gap: 15px;
+        text-align: center;
+
+    }
+
+    nav a {
+        margin: 0px 10px;
+
+    }
+
+    .servicios-grid {
+        grid-template-columns: 1fr; /* Servicios pasan a 1 sola columna */
+
+    }
+
+    #hero h2 {
+        font-size: 26px;
+    }
+
+   }
