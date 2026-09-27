@@ -131,7 +131,9 @@ footer {
 /* ====================================================
    7. MEDIA QUERY RESPONSIVE (Para Celulares < 768px)
    ==================================================== */
-   @media (max-width: 768px) {
+   /* Cuando la pantalla mide menos de 768px (celulares),
+   adaptamos el diseño a una sola columna para que sea legible en pantallas pequeñas */
+@media (max-width: 768px) {
     header {
         flex-direction: column; /* Menú pasa de fila a columna */
         gap: 15px;

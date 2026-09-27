@@ -27,7 +27,9 @@
             }
 
         /* 2. PANTALLAS MEDIANAS (tablets de 768px en adelante): 2 columnas */
-     @media (min-width: 768px) {
+     /* Cuando la pantalla mide 768px o más (tablet y pantallas mayores),
+   cambiamos a un layout de dos columnas para aprovechar mejor el espacio */
+@media (min-width: 768px) {
         .tarjeta {
             width: 47%;
             display: inline-block;
@@ -36,7 +38,9 @@
     }  
 
      /* 3. PANTALLAS GRANDES (computadoras de 1024px en adelante): 3 columnas */
-     @media (min-width: 1024px) {
+     /* Cuando la pantalla mide 1024px o más (computadoras y monitores grandes),
+   usamos tres columnas para aprovechar todo el ancho disponible */
+@media (min-width: 1024px) {
          .tarjeta {
             width: 31%;
             margin-right: 2%;
