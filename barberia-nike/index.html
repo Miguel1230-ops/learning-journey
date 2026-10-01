@@ -47,6 +47,23 @@
                 </article>
             </div>
          </section>
+
+         <!-- Sección Demo IA -->
+         <section id="demo-ia" style="text-align: center; padding: 60px 20px; background-color: #ffffff;
+         border-top: 2px solid #1a1a2e;">
+         <h2>Demo: Generador de Promociones con IA</h2>
+        <p style="margin-top: 10px; margin-bottom: 20px;">Escribe una idea de promoción (2x1 los
+             martes, descuentos a estudiantes):</p>
+
+             <input type="text" id="promoInput" placeholder="ej: Descuento para estudiantes" style="padding: 
+             10px; width: 60%; max-width: 300px; font-size: 16px; border: 2px solid #1a1a2e; border-radius: 6px;">
+             <button id="btnPromo" style="padding: 10px 20px; font-size: 16px; background-color: #e94560;
+              color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; margin-left:
+              10px;">Generar anuncio</button>
+
+                     <p id="resultadoPromo" style="margin-top: 25px; font-size: 18px; font-weight: bold; color:
+                      #1a1a2e; max-width: 600px; margin-left: auto; line-height: 1.5;"></p>
+        </section>
      </main>
 
      <!-- 3. PIE DE PÁGINA -->
@@ -58,5 +75,6 @@
        <div id="clima" style="text-align: center; padding: 15px; background: #16213e; color: white; font-weight:
         bold; margin-top: 20px;"></div>
         <script src="clima.js"></script>
+        <script src="ia-promo.js"></script>
     </body>
 </html>
