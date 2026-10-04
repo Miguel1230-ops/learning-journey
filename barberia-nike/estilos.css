@@ -1,158 +1,317 @@
-/* RESET BÁSICO (para que todo mida exactamente lo que decimos) */
-*{
+/* ====================================================
+   1. VARIABLES DE DISEÑO (Paleta Dark + Oro de Barbería)
+   ==================================================== */
+:root {
+    --color-fondo: #0f0f0f;          /* Fondo principal negro profundo */
+    --color-fondo-alt: #161616;      /* Fondo secundario para contrastar */
+    --color-tarjeta: #1c1c1c;        /* Fondo de tarjetas y contenedores */
+    --color-texto: #f5f5f5;          /* Texto principal blanco suave */
+    --color-texto-muted: #a0a0a0;    /* Texto secundario gris claro */
+    --color-acento: #c9a24a;         /* Dorado barbero elegante */
+    --color-acento-hover: #dfb75c;   /* Dorado brillante al pasar el mouse */
+    --color-borde: #2a2a2a;          /* Bordes finos y sutiles */
+    
+    --fuente-titulos: 'Montserrat', sans-serif;
+    --fuente-texto: 'Poppins', sans-serif;
+}
+
+/* ====================================================
+   2. RESET BÁSICO Y ESTILOS GLOBALES
+   ==================================================== */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-
+    font-family: var(--fuente-texto);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
 }
 
-/* 2. HEADER CON FLEXBOX (Logo a la izq, Menú a la der) */
+h1, h2, h3 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* ====================================================
+   3. ENCABEZADO (Header Flexbox)
+   ==================================================== */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
-    background-color: #1a1a2e;
-    color: white;
+    padding: 20px 50px;
+    background-color: var(--color-fondo);
+    border-bottom: 1px solid var(--color-borde);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
+header h1 {
+    font-size: 24px;
+    color: var(--color-acento);
 }
 
 nav a {
-    color: white;
-    margin-left: 20px;
+    color: var(--color-texto);
+    margin-left: 25px;
     text-decoration: none;
-    font-weight: bold;
-
+    font-weight: 600;
+    font-size: 15px;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-     color: #e94560;
-
+    color: var(--color-acento);
 }
 
-/* 3. HERO (PORTADA) */
+/* ====================================================
+   4. PORTADA (Hero Section)
+   ==================================================== */
 #hero {
-    background-color: #16213e;
-    color: white;
+    background: linear-gradient(180deg, var(--color-fondo) 0%, var(--color-fondo-alt) 100%);
     text-align: center;
-    padding: 80px 20px;
-
+    padding: 100px 20px;
+    border-bottom: 1px solid var(--color-borde);
 }
 
 #hero h2 {
-    font-size: 36px;
-    margin-bottom: 10px;
-
+    font-size: 42px;
+    margin-bottom: 15px;
+    color: var(--color-texto);
 }
 
-/* 4. SECCIÓN SERVICIOS CON CSS GRID */
-#servicios {
-    padding: 60px 20px;
-    text-align: center;
+#hero p {
+    font-size: 18px;
+    color: var(--color-texto-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
 
+/* ====================================================
+   5. SECCIÓN SERVICIOS (CSS Grid 2D)
+   ==================================================== */
+#servicios {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: var(--color-fondo);
 }
 
 #servicios h2 {
-    margin-bottom: 30px;
-    font-size: 28px;
-
+    margin-bottom: 40px;
+    font-size: 32px;
+    color: var(--color-acento);
 }
 
 .servicios-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
-    gap: 20px;
-    max-width: 1000px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
     margin: 0 auto;
-
 }
 
 .servicio-card {
-    background: white;
-    border: 2px solid #1a1a2e;
-    border-radius: 12px;
-    padding: 30px 20px;
-    box-shadow: 6px 6px 0 #1a1a2e;
+    background: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 14px;
+    padding: 40px 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
 
+.servicio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(201, 162, 74, 0.15);
+    border-color: var(--color-acento);
 }
 
 .servicio-card h3 {
-    margin-bottom: 10px;
-
+    margin-bottom: 12px;
+    font-size: 20px;
 }
 
 .precio {
-    font-size: 24px;
-    font-weight: bold;
-    color: #e94560;
-    margin-bottom: 10px;
-
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-acento);
+    margin-bottom: 15px;
 }
 
-/* 5. CONTACTO */
-#contacto {
-    background-color: #ffffff;
-    text-align: center;
-    padding: 60px 20px;
-    border-top: 2px solid #1a1a2e;
+.servicio-card p {
+    color: var(--color-texto-muted);
+    font-size: 14px;
+}
 
+/* ====================================================
+   6. SECCIÓN DEMO IA (Generador de Promociones)
+   ==================================================== */
+#demo-ia {
+    background-color: var(--color-fondo-alt);
+    padding: 80px 20px;
+    text-align: center;
+    border-top: 1px solid var(--color-borde);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+#demo-ia h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: var(--color-acento);
+}
+
+#demo-ia p {
+    color: var(--color-texto-muted);
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+#promoInput {
+    padding: 14px 20px;
+    width: 60%;
+    max-width: 400px;
+    font-size: 15px;
+    font-family: var(--fuente-texto);
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    color: var(--color-texto);
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#promoInput:focus {
+    border-color: var(--color-acento);
+}
+
+#btnPromo {
+    padding: 14px 28px;
+    font-size: 15px;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    background-color: var(--color-acento);
+    color: #0f0f0f;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 12px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#btnPromo:hover {
+    background-color: var(--color-acento-hover);
+    transform: scale(1.03);
+}
+
+#resultadoPromo {
+    margin-top: 30px;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-acento);
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* ====================================================
+   7. SECCIÓN CONTACTO
+   ==================================================== */
+#contacto {
+    background-color: var(--color-fondo);
+    padding: 80px 20px;
+    text-align: center;
+    border-top: 1px solid var(--color-borde);
+}
+
+#contacto h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: var(--color-acento);
+}
+
+#contacto p {
+    color: var(--color-texto-muted);
+    margin-bottom: 30px;
+    font-size: 16px;
 }
 
 .btn-whatsapp {
     display: inline-block;
     background-color: #25d366;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 8px;
+    color: #ffffff;
+    padding: 16px 32px;
+    border-radius: 30px;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-    margin-top: 20px;
-    box-shadow: 4px 4px 0 #1a1a2e;
-
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* 6. FOOTER */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #1a1a2e;
-    color: white;
-
+.btn-whatsapp:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(37, 211, 102, 0.45);
 }
 
 /* ====================================================
-   7. MEDIA QUERY RESPONSIVE (Para Celulares < 768px)
+   8. FOOTER
    ==================================================== */
-   /* Cuando la pantalla mide menos de 768px (celulares),
-   adaptamos el diseño a una sola columna para que sea legible en pantallas pequeñas */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--color-fondo-alt);
+    border-top: 1px solid var(--color-borde);
+    color: var(--color-texto-muted);
+    font-size: 14px;
+}
+
+#clima {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--color-acento);
+}
+
+/* ====================================================
+   8. RESPONSIVE DESIGN (Media Query para Celulares)
+   ==================================================== */
 @media (max-width: 768px) {
     header {
-        flex-direction: column; /* Menú pasa de fila a columna */
+        flex-direction: column;
         gap: 15px;
-        text-align: center;
-
+        padding: 20px;
     }
 
     nav a {
-        margin: 0px 10px;
-
-    }
-
-    .servicios-grid {
-        grid-template-columns: 1fr; /* Servicios pasan a 1 sola columna */
-
+        margin: 0 10px;
     }
 
     #hero h2 {
-        font-size: 26px;
+        font-size: 28px;
     }
 
-   }
+    .servicios-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    #promoInput {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    #btnPromo {
+        width: 100%;
+        margin-left: 0;
+    }
+}

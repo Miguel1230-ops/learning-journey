@@ -4,6 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Barbería Nike</title>
+            <!-- Google Fonts: Montserrat (Títulos) y Poppins (Textos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="estilos.css">
     </head>
     <body>
@@ -49,32 +53,31 @@
          </section>
 
          <!-- Sección Demo IA -->
-         <section id="demo-ia" style="text-align: center; padding: 60px 20px; background-color: #ffffff;
-         border-top: 2px solid #1a1a2e;">
-         <h2>Demo: Generador de Promociones con IA</h2>
-        <p style="margin-top: 10px; margin-bottom: 20px;">Escribe una idea de promoción (2x1 los
-             martes, descuentos a estudiantes):</p>
+         <section id="demo-ia">
+            <h2>Demo: Generador de Promociones con IA</h2>
+            <p>Escribe una idea de promoción (ej: 2x1 los martes, descuento a estudiantes):</p>
+            
+            <input type="text" id="promoInput" placeholder="Ej: Descuento para estudiantes">
+            <button id="btnPromo">Generar anuncio</button>
+            
+            <p id="resultadoPromo"></p>
+         </section>
 
-             <input type="text" id="promoInput" placeholder="ej: Descuento para estudiantes" style="padding: 
-             10px; width: 60%; max-width: 300px; font-size: 16px; border: 2px solid #1a1a2e; border-radius: 6px;">
-             <button id="btnPromo" style="padding: 10px 20px; font-size: 16px; background-color: #e94560;
-              color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; margin-left:
-              10px;">Generar anuncio</button>
-
-                     <p id="resultadoPromo" style="margin-top: 25px; font-size: 18px; font-weight: bold; color:
-                      #1a1a2e; max-width: 600px; margin-left: auto; line-height: 1.5;"></p>
-        </section>
+         <!-- Sección Contacto -->
+         <section id="contacto">
+            <h2>Agenda tu Cita</h2>
+            <p>Atención personalizada y el mejor ambiente en Managua.</p>
+            <a href="https://wa.me/" class="btn-whatsapp" target="_blank">📱 Contactar por WhatsApp</a>
+         </section>
      </main>
 
      <!-- 3. PIE DE PÁGINA -->
-      <footer>
+     <footer>
         <p>&copy; 2026 Barbería Nike - Todos los derechos reservados</p>
-      </footer>
-    
-      <!-- 4. DATOS DINÁMICOS DE API-->
-       <div id="clima" style="text-align: center; padding: 15px; background: #16213e; color: white; font-weight:
-        bold; margin-top: 20px;"></div>
-        <script src="clima.js"></script>
-        <script src="ia-promo.js"></script>
-    </body>
+        <div id="clima"></div>
+     </footer>
+
+     <script src="clima.js"></script>
+     <script src="ia-promo.js"></script>
+ </body>
 </html>
