@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
-        <html lang="es">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Barbería Nike</title>
@@ -69,7 +68,43 @@
          <section id="contacto">
             <h2>Agenda tu Cita</h2>
             <p>Atención personalizada y el mejor ambiente en Managua.</p>
-            <a href="https://wa.me/" class="btn-whatsapp" target="_blank">📱 Contactar por WhatsApp</a>
+            <a href="https://wa.me/505XXXXXXXX?text=Hola,%20quiero%20reservar%20una%20cita" class="btn-whatsapp" target="_blank" rel="noopener">
+   📱 Reservar por WhatsApp
+</a>
+
+<div class="divisor-o">-o completa este formulario-</div>
+
+    <form name="reservas" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+    clas="formulario-reservas">
+    <input type="hidden" name="form-name" value="reservas">
+
+    <!-- Campo trampa anti-spam (HoneyPot) -->
+     <p style="display:none">
+        <label>No llenar: <input name="bot-field"></label>
+
+     </p>
+
+     <div class="campo-form">
+        <label for="nombre">Tu nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="ej: Carlos Peréz" required>
+     </div>
+
+     <div class="campo-form">
+        <label for="servicio">Servicio deseado:</label>
+        <select id="servicio" name="servicio">
+        <option>Corte clásico (C$150)</option>
+        <option>Corte + Barba (C$200)</option>
+        <option>Diseño urbano (C$180)</option>
+        </select>
+     </div>
+
+     <div class="campo-form">
+        <label for="fecha">Día preferido:</label>
+        <input type="date" id="fecha" name="fecha" required>
+     </div>
+
+     <button type="submit" class="btn-submit">Solicitar cita</button>
+    </form>
          </section>
      </main>
 

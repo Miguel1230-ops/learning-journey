@@ -264,6 +264,73 @@ nav a:hover {
     box-shadow: 0 12px 25px rgba(37, 211, 102, 0.45);
 }
 
+.divisor-o {
+    color:var(--color-texto-muted);
+    margin: 30px 0 25px 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.formulario-reservas{
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 14px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 35px 30px;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.campo-form {
+    margin-bottom: 20px;
+}
+
+.campo-form label {
+    display: block;
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 8px;
+}
+
+.campo-form input, .campo-form select {
+    width: 100%;
+    padding: 12px 16px;
+    font-family: var(--fuente-texto);
+    font-size: 15px;
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    color: var(--color-texto);
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.campo-form input:focus, .campo-form select:focus {
+    border-color: var(--color-acento);
+}
+
+.btn-submmit {
+    width: 100%;
+    padding: 14px;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 16px;
+    background-color: var(--color-acento);
+    color: #0f0f0f;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2 ease;
+}
+
+.btn-submmit:hover {
+    background-color: var(--color-acento-hover);
+    transform: translateY(-2px);
+}
 /* ====================================================
    8. FOOTER
    ==================================================== */
