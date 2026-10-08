@@ -6,7 +6,7 @@
     --color-fondo-alt: #161616;      /* Fondo secundario para contrastar */
     --color-tarjeta: #1c1c1c;        /* Fondo de tarjetas y contenedores */
     --color-texto: #f5f5f5;          /* Texto principal blanco suave */
-    --color-texto-muted: #a0a0a0;    /* Texto secundario gris claro */
+    --color-texto-muted: #b5b5b5;    /* Texto secundario gris más claro para alto contraste */
     --color-acento: #c9a24a;         /* Dorado barbero elegante */
     --color-acento-hover: #dfb75c;   /* Dorado brillante al pasar el mouse */
     --color-borde: #2a2a2a;          /* Bordes finos y sutiles */
@@ -248,7 +248,7 @@ nav a:hover {
 .btn-whatsapp {
     display: inline-block;
     background-color: #25d366;
-    color: #ffffff;
+    color: #0f0f0f;
     padding: 16px 32px;
     border-radius: 30px;
     text-decoration: none;
