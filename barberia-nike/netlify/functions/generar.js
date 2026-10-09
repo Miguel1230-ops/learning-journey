@@ -31,7 +31,8 @@ exports.handler = async function(event) {
                         parts: [{ text: "Escribe un anuncio de redes sociales muy corto, atractivo y vendedor (máximo 2 oraciones con emojis) para la Barbería Nike en Managua sobre esta promoción: " + idea }]
                     }],
                     generationConfig: {
-                        maxOutputTokens: 200
+                        maxOutputTokens: 1024,
+                        thinkingConfig: { thinkingBudget: 0 }
                     }
                 })
             }
