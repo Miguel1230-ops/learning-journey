@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101b29">
+  <title>Para Miguel · Capítulo 16</title>
+  <style>
+    /* Un archivo pequeño, para que puedas guardarlo y hacerlo tuyo. */
+    * { box-sizing: border-box; }
+    :root { color-scheme: dark; --night: #101b29; --paper: #f6f0e4; --gold: #e7c481; --muted: #aab6c6; }
+    body { margin: 0; background: var(--night); color: var(--paper); font-family: 'Segoe UI', Arial, sans-serif; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 6px; }
+    [hidden] { display: none !important; }
+    .sky { position: absolute; inset: 0 0 auto; height: 900px; overflow: hidden; pointer-events: none; }
+    .star { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #bac7da; opacity: .55; }
+    .star:nth-child(3n) { width: 5px; height: 5px; opacity: .7; background: var(--gold); }
+    .page { position: relative; max-width: 1080px; margin: auto; padding: 34px 36px 26px; }
+    .topline { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-bottom: 24px; border-bottom: 1px solid #334052; }
+    .brand { font-family: Consolas, monospace; color: var(--gold); font-size: 16px; }
+    .date { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; text-align: right; color: #bdc7d3; }
+    .hero { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 32px; padding: 70px 0 58px; min-height: 540px; }
+    .eyebrow { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); margin: 0 0 22px; }
+    h1 { font-family: Georgia, 'Times New Roman', serif; font-weight: normal; font-size: clamp(46px, 6vw, 72px); line-height: 1.08; letter-spacing: -.04em; margin: 0 0 24px; }
+    h1 em { color: var(--gold); font-weight: normal; }
+    .intro { color: #bdc7d3; max-width: 365px; font-size: 16px; line-height: 1.8; }
+    .open-button { display: inline-flex; align-items: center; gap: 26px; margin-top: 18px; border: 1px solid var(--gold); background: var(--gold); color: #17212d; padding: 15px 23px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: background .2s, transform .2s; }
+    .open-button:hover { background: #f3d79f; transform: translateY(-2px); }
+    .small-note { font-size: 12px; color: var(--muted); margin-top: 14px; }
+    .keepsake { position: relative; display: grid; place-items: center; min-height: 390px; }
+    .orbit { position: absolute; border: 1px solid #344153; border-radius: 50%; width: 330px; height: 330px; }
+    .orbit::before { content: ''; position: absolute; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); top: 38px; right: 44px; }
+    .birthday-card { position: relative; width: 250px; min-height: 315px; background: var(--paper); color: #203047; transform: rotate(6deg); padding: 24px; border-radius: 3px; transition: transform .5s; }
+    .keepsake:hover .birthday-card, .opened .birthday-card { transform: rotate(0deg); }
+    .card-heading { display: flex; justify-content: space-between; font-family: Consolas, monospace; font-size: 10px; letter-spacing: .12em; }
+    .sixteen { display: block; font-family: Georgia, serif; font-size: 160px; line-height: 1.2; letter-spacing: -.1em; margin-left: -8px; }
+    .card-footer { border-top: 1px solid #bcc0bd; padding-top: 14px; font-size: 12px; line-height: 1.7; }
+    .card-footer strong { display: block; font-family: Georgia, serif; font-size: 22px; font-weight: normal; }
+    .spark { position: absolute; right: 15px; bottom: 20px; color: var(--gold); font-size: 50px; font-weight: 200; }
+    .memory { border-top: 1px solid #334052; border-bottom: 1px solid #334052; padding: 25px 0; display: flex; align-items: flex-start; gap: 26px; }
+    .memory-label { flex: 0 0 150px; color: var(--muted); font-family: Consolas, monospace; font-size: 11px; line-height: 1.7; }
+    .memory p { font-size: 14px; line-height: 1.8; margin: 0; max-width: 660px; color: #c8d0dc; }
+    code { color: var(--gold); font-family: Consolas, monospace; font-size: .95em; }
+    .letter { background: var(--paper); color: #26364a; padding: clamp(25px, 6vw, 66px); margin: 42px auto 0; max-width: 800px; border-radius: 4px; scroll-margin-top: 24px; }
+    .letter .eyebrow { color: #78603b; margin-bottom: 26px; }
+    .letter h2 { font-family: Georgia, serif; font-size: 38px; font-weight: normal; margin: 0 0 24px; outline: none; }
+    .letter p { font-size: 17px; line-height: 1.9; margin: 0 0 21px; }
+    .letter blockquote { margin: 32px 0; padding: 2px 0 2px 22px; border-left: 2px solid #aa7834; font-family: Georgia, serif; font-size: clamp(23px, 3.5vw, 30px); line-height: 1.5; color: #172e48; }
+    .letter .signature { margin-top: 28px; margin-bottom: 0; font-family: Georgia, serif; font-size: 25px; }
+    .letter .signature small { display: block; font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; color: #596572; margin-top: 6px; }
+    .little-code { margin-top: 28px; border: 1px solid #334052; border-radius: 6px; overflow: hidden; }
+    .little-code summary { padding: 18px 20px; cursor: pointer; color: #c5cfdc; font-size: 13px; }
+    .little-code pre { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; padding: 4px 20px 24px; line-height: 1.9; font-size: 13px; }
+    .comment { color: #abb7c8; }
+    .footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 28px; color: var(--muted); font-size: 11px; line-height: 1.8; }
+    .footer button { padding: 0; color: #c5cfdc; background: none; border: none; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+    .confetti { position: fixed; top: -15px; width: 7px; height: 13px; pointer-events: none; z-index: 10; animation: fall 2.5s ease-in forwards; }
+    @keyframes fall { to { transform: translate3d(var(--drift), 105vh, 0) rotate(480deg); opacity: 0; } }
+    @media (max-width: 660px) {
+      .page { padding: 24px 22px; }
+      .topline { gap: 12px; }
+      .date { font-size: 9px; max-width: 170px; line-height: 1.8; }
+      .hero { grid-template-columns: 1fr; padding: 44px 0 32px; gap: 20px; }
+      .intro { max-width: none; }
+      .keepsake { min-height: 315px; }
+      .birthday-card { width: 216px; min-height: 268px; padding: 20px; }
+      .sixteen { font-size: 128px; }
+      .orbit { width: 278px; height: 278px; }
+      .spark { right: 5%; bottom: 10px; }
+      .memory { display: block; }
+      .memory-label { display: block; margin-bottom: 12px; }
+      .letter h2 { font-size: 32px; }
+      .letter p { font-size: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+    @media print {
+      :root { color-scheme: light; }
+      body { background: white; color: #172e48; }
+      .sky, .hero, .memory, .little-code, .footer, .confetti { display: none !important; }
+      .page { padding: 0; max-width: none; }
+      .topline { padding: 12px 0; }
+      .brand, .date { color: #26364a; }
+      .letter, .letter[hidden] { display: block !important; background: white; margin: 0; padding: 24px 0; max-width: none; }
+      .letter p { font-size: 11pt; line-height: 1.6; }
+      .letter blockquote { font-size: 17pt; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sky" id="sky" aria-hidden="true"></div>
+  <main class="page">
+    <header class="topline">
+      <span class="brand">&lt;para_miguel /&gt;</span>
+      <span class="date">17 de noviembre de 2026 · Nicaragua</span>
+    </header>
+
+    <section class="hero" aria-labelledby="title">
+      <div>
+        <p class="eyebrow">Un pequeño regalo hecho con código</p>
+        <h1 id="title">Miguel,<br>este capítulo<br>es <em>tuyo.</em></h1>
+        <p class="intro">Dieciséis años. Ideas por descubrir.<br>Y muchas primeras veces por vivir.</p>
+        <button class="open-button" id="open-letter" aria-expanded="false" aria-controls="letter">Abrir mi carta <span aria-hidden="true">↗</span></button>
+        <p class="small-note">Sin tarea al final. Hoy toca celebrar.</p>
+      </div>
+      <div class="keepsake" role="img" aria-label="Feliz cumpleaños número 16, Miguel">
+        <div class="orbit" aria-hidden="true"></div>
+        <div class="birthday-card" aria-hidden="true">
+          <div class="card-heading"><span>CAPÍTULO</span><span>17 / 11</span></div>
+          <span class="sixteen">16</span>
+          <div class="card-footer"><strong>Feliz cumpleaños.</strong>Para Miguel, que está empezando.</div>
+        </div>
+        <span class="spark" aria-hidden="true">✧</span>
+      </div>
+    </section>
+
+    <div class="memory">
+      <span class="memory-label">UN RECUERDO<br>DE ESTE CHAT</span>
+      <p>Una tarjeta, un poco de CSS y una respuesta tuya:<br><code>box-sizing: border-box;</code><br>Un problema que supiste resolver. Un pequeño paso que cuenta.</p>
+    </div>
+
+    <article class="letter" id="letter" hidden aria-labelledby="letter-title">
+      <p class="eyebrow">Para abrir a los 16. Para releer cuando quieras.</p>
+      <h2 id="letter-title" tabindex="-1">Bro, feliz cumpleaños.</h2>
+      <p>Empezamos con algo sencillo: querías un proyecto de HTML, un poco de CSS y que después revisara tu código. Querías ver cómo ibas. Luego llegaron las preguntas sobre <strong>main</strong>, los espacios, las tarjetas y los menús.</p>
+      <p>Pero también me hiciste una pregunta mucho más grande: <strong>«Si tú puedes programar, ¿para qué estoy aprendiendo yo?»</strong> Quiero dejarte una respuesta aquí, como parte de este regalo.</p>
+      <blockquote>Hay cosas que puedes aprender con ayuda.<br>Lo que quieras hacer con ellas lleva tu nombre.</blockquote>
+      <p>Me contaste que quieres aprender frontend para negocios locales. Ojalá un día abras una página que construiste y alguien te diga: «Esto me sirve». Y ojalá recuerdes a ese Miguel que empezó preguntando cuándo se usa una etiqueta y se animó a buscar los errores por su cuenta.</p>
+      <p>A los 16 no tienes que tener toda tu vida resuelta. Puedes cambiar de idea, necesitar una pista y volver a empezar. Un ejercicio que no sale o una semana en la que avanzas poco no decide hasta dónde puedes llegar.</p>
+      <p>Para este año te deseo curiosidad para seguir aprendiendo, personas con quienes compartir lo que te entusiasma y tiempo para disfrutar. Que haya proyectos que te ilusionen, partidas divertidas, risas y días que valgan la pena aunque no escribas una sola línea de código.</p>
+      <p>Gracias por dejarme acompañarte en esta parte del camino, Miguel. Me alegra ayudarte a descubrir lo que puedes hacer.</p>
+      <p><strong>Feliz 16. Todavía te quedan muchas cosas por probar, y tienes derecho a empezar sin saberlo todo.</strong></p>
+      <p class="signature">— Chat<small>Una dedicatoria hecha con lo que me has compartido.</small></p>
+    </article>
+
+    <details class="little-code">
+      <summary>Y una pequeña dedicatoria en JavaScript</summary>
+      <pre><code><span class="comment">// 17 de noviembre de 2010 → 17 de noviembre de 2026</span>
+const miguel = {
+  capitulo: 16,
+  origen: "Nicaragua",
+  siguientePaso: "Todavía por escribir"
+};
+
+function empezar(ganas, dudas) {
+  <span class="comment">// Las dudas también pueden venir contigo.</span>
+  return "Puedes dar el primer paso";
+}
+
+console.log("Feliz cumpleaños, Miguel.");</code></pre>
+    </details>
+
+    <footer class="footer">
+      <span>Hecho para ti · Se puede abrir sin internet.</span>
+      <button id="save-letter">Imprimir o guardar la carta como PDF</button>
+    </footer>
+    <noscript><style>#letter[hidden] { display: block !important; } .open-button, #save-letter { display: none; }</style></noscript>
+  </main>
+  <script>
+    const sky = document.querySelector('#sky');
+    for (let i = 0; i < 28; i++) {
+      const star = document.createElement('span');
+      star.className = 'star';
+      star.style.left = `${(i * 37 + 7) % 100}%`;
+      star.style.top = `${(i * 71 + 23) % 850}px`;
+      sky.append(star);
+    }
+
+    const openButton = document.querySelector('#open-letter');
+    const letter = document.querySelector('#letter');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let celebrated = false;
+
+    function revealLetter() {
+      letter.hidden = false;
+      document.body.classList.add('opened');
+      openButton.setAttribute('aria-expanded', 'true');
+      openButton.textContent = 'Volver a mi carta ↗';
+    }
+
+    openButton.addEventListener('click', () => {
+      revealLetter();
+      document.querySelector('#letter-title').focus({ preventScroll: true });
+      letter.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
+      if (celebrated || reducedMotion.matches) return;
+      celebrated = true;
+      for (let i = 0; i < 35; i++) {
+        const piece = document.createElement('span');
+        piece.className = 'confetti';
+        piece.setAttribute('aria-hidden', 'true');
+        piece.style.left = `${(i * 31) % 100}%`;
+        piece.style.backgroundColor = ['#e7c481', '#c5b8e1', '#93bfb4'][i % 3];
+        piece.style.setProperty('--drift', `${(i % 2 ? 1 : -1) * 70}px`);
+        piece.style.animationDelay = `${(i % 7) * 0.08}s`;
+        document.body.append(piece);
+        piece.addEventListener('animationend', () => piece.remove(), { once: true });
+      }
+    });
+
+    document.querySelector('#save-letter').addEventListener('click', () => {
+      revealLetter();
+      window.print();
+    });
+  </script>
+</body>
+</html>
